@@ -1,0 +1,86 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    @media screen and (max-width: 1920px){
+      .btn-cadastrar {
+      position: absolute;
+      border-radius: 20px;
+      width: 350px;
+      height: 50px;
+      left: 785px;
+      top: 640px;
+      font-size: 30px;
+      font-family: 'Zen Antique';}}
+    @media screen and (max-width: 768px) {
+      .btn-cadastrar {
+        position: absolute;
+        border-radius: 20px;
+        width: 310px;
+        height: 50px;
+        left: 38px;
+        top: 640px;
+        font-size: 30px;
+        font-family: 'Zen Antique';
+      }
+    }
+</style>
+    <link rel="stylesheet" href="{% static 'css/cadastro.css'%}">
+    <title>Registro</title>
+</head>
+<body>
+  <header>
+    <div class="box-nav"></div>
+    <h1>Daily News</h1>
+    <nav class="menu-bar">
+      <a href="{% url 'inicio' %}" class="menu-item" style="outline: none;">Início</a>
+      <a href="{% url 'noticia' %}" class="menu-item" style="outline: none;">Noticia</a>
+      <a href="{% url 'cadastro' %}" class="menu-item" style="outline: none;">Registro</a>
+      <a href="{% url 'contato' %}" class="menu-item" style="outline: none;">Contato</a>
+  </nav>
+</header>
+  <h2>Registro</h2>
+
+  <form id="meuFormulario" method="post">
+    {% csrf_token %}
+    <h4><a href="{% url 'termo' %}" target="_blank" style="text-decoration: none; color: inherit;">Confirmar termos</a></h4>
+
+    <label for="nome"></label>
+    <input type="text" placeholder="Digite seu nome" id="nome" name="nome" required><br>
+
+    <label for="email"></label>
+    <input type="email" placeholder="Digite seu email" id="email" name="email" required><br>
+    
+    <div id="popup" class="popup hidden">
+      Email inválido! Tente novamente.
+    </div>
+
+    <div id="popup-checkbox" class="popup hidden">
+      Confirme a leitura dos termos
+    </div>
+
+    <div class="box"></div>
+    <input type="checkbox" id="myCheckbox" name="myCheckbox">
+
+    <button type="submit" onclick="exibirPopupCheck()" class="btn-cadastrar">Entrar</button>
+  </form>
+</body>
+
+  <script>
+    function exibirPopupCheck() {
+    const checkbox = document.getElementById("myCheckbox");
+  
+    if (!checkbox.checked) {
+      var popup = document.getElementById("popup-checkbox");
+      popup.classList.remove("hidden");
+      setTimeout(function() {
+        popup.classList.add("hidden");
+      }, 3000);
+    }
+
+  return checkbox.checked;
+}
+  </script>
+</html>
