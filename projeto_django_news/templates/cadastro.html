@@ -13,7 +13,20 @@
       left: 785px;
       top: 640px;
       font-size: 30px;
-      font-family: 'Zen Antique';}}
+      font-family: 'Zen Antique';}
+      
+      .cancelar {
+      color: #fff;
+      position: absolute;
+      border-radius: 20px;
+      width: 250px;
+      height: 50px;
+      left: 54%;
+      top: 75%;
+      transform: translate(-50%, -50%);
+      font-size: 20px;
+      font-family: 'Zen Antique';}
+    }
     @media screen and (max-width: 768px) {
       .btn-cadastrar {
         position: absolute;
@@ -24,8 +37,20 @@
         top: 640px;
         font-size: 30px;
         font-family: 'Zen Antique';
+
+        .cancelar {
+        position: absolute;
+        border-radius: 20px;
+        width: 310px;
+        height: 50px;
+        left: 38px;
+        top: 740px;
+        font-size: 30px;
+        font-family: 'Zen Antique';
       }
     }
+  }
+
 </style>
     <link rel="stylesheet" href="{% static 'css/cadastro.css'%}">
     <title>Registro</title>
@@ -46,7 +71,6 @@
   <form id="meuFormulario" method="post">
     {% csrf_token %}
     <h4><a href="{% url 'termo' %}" target="_blank" style="text-decoration: none; color: inherit;">Confirmar termos</a></h4>
-
     <label for="nome"></label>
     <input type="text" placeholder="Digite seu nome" id="nome" name="nome" required><br>
 
@@ -65,6 +89,8 @@
     <input type="checkbox" id="myCheckbox" name="myCheckbox">
 
     <button type="submit" onclick="exibirPopupCheck()" class="btn-cadastrar">Entrar</button>
+    <a href="{% url 'cancelar' %}" class="cancelar">Cancelar registro</a>
+
   </form>
 </body>
 

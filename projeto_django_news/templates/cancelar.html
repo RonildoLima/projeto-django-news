@@ -1,0 +1,60 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    @media screen and (max-width: 1920px){
+      .btn-cadastrar {
+      position: absolute;
+      border-radius: 20px;
+      width: 350px;
+      height: 50px;
+      left: 785px;
+      top: 540px;
+      font-size: 30px;
+      font-family: 'Zen Antique';}}
+    @media screen and (max-width: 768px) {
+      .btn-cadastrar {
+        position: absolute;
+        border-radius: 20px;
+        width: 310px;
+        height: 50px;
+        left: 38px;
+        top: 640px;
+        font-size: 30px;
+        font-family: 'Zen Antique';
+      }
+    }
+</style>
+    <link rel="stylesheet" href="{% static 'css/cancelar.css'%}">
+    <title>Cancelar registro</title>
+</head>
+<body>
+  <header>
+    <div class="box-nav"></div>
+    <h1>Daily News</h1>
+    <nav class="menu-bar">
+      <a href="{% url 'inicio' %}" class="menu-item" style="outline: none;">Início</a>
+      <a href="{% url 'noticia' %}" class="menu-item" style="outline: none;">Noticia</a>
+      <a href="{% url 'cadastro' %}" class="menu-item" style="outline: none;">Registro</a>
+      <a href="{% url 'contato' %}" class="menu-item" style="outline: none;">Contato</a>
+  </nav>
+</header>
+  <h2>Cancelar registro</h2>
+
+  <form id="meuFormulario" method="post">
+    {% csrf_token %}
+    <h4><a target="_blank" style="text-decoration: none; color: inherit;">Confirmar cancelamento</a></h4>
+
+    <label for="email"></label>
+    <input type="email" placeholder="Digite seu email" id="email" name="email" required><br>
+
+    <div class="box"></div>
+    <input type="checkbox" id="myCheckbox" name="myCheckbox">
+
+    <button type="submit" class="btn-cadastrar">Cancelar</button>
+  
+  </form>
+</body>
+</html>

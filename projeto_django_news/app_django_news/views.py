@@ -32,4 +32,15 @@ def noticia(request):
 def termo(request):
     return render(request,"termo.html")
 
+def cancelar(request):
+    if request.method == 'POST':
+        email = request.POST.get('email')
+        try:
+            registro = Registro.objects.get(email=email)
+            registro.delete()
+        except Registro.DoesNotExist:
+            pass
+    return render(request,"cancelar.html")
+
+
 

@@ -82,8 +82,18 @@ DATABASES = {
         'PASSWORD': 'axiXDoJFWJcZBgx0ON6Q_Y6D7Yo-pBZR',
         'HOST': 'silly.db.elephantsql.com',
         'PORT': '5432',
-    }
+    },
+    'test': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'bztklykc',
+        'USER': 'bztklykc',
+        'PASSWORD': 'hJS-uXf3_laP9X10Dj0jvH7YsgpuNiBM',
+        'HOST': 'silly.db.elephantsql.com',
+        'PORT': '5432',
+
 }
+}
+
 
 
 # Password validation
@@ -127,3 +137,6 @@ STATICFILES_DIRS = BASE_DIR,'static'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+TEST_RUNNER = 'django.test.runner.DiscoverRunner'
+
