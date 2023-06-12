@@ -2,7 +2,17 @@ from django.test import TestCase
 from django.urls import reverse
 
 class ViewsTestCase(TestCase):
-    databases = {'default'}
+
+    def test_inicio(self):
+        response = self.client.get(reverse('inicio'))
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, 'inicio.html')
+    
+    def test_cadastro(self):
+        response = self.client.get(reverse('cadastro'))
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, 'cadastro.html')
+
     def test_contato(self):
         response = self.client.get(reverse('contato'))
         self.assertEqual(response.status_code, 200)
@@ -18,7 +28,10 @@ class ViewsTestCase(TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'termo.html')
 
-    def test_inicio(self):
-        response = self.client.get(reverse('inicio'))
+    def test_cancelar(self):
+        response = self.client.get(reverse('cancelar'))
         self.assertEqual(response.status_code, 200)
-        self.assertTemplateUsed(response, 'inicio.html')
+        self.assertTemplateUsed(response, 'cancelar.html')
+    
+    
+    

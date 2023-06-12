@@ -75,7 +75,7 @@ WSGI_APPLICATION = 'projeto_django_news.wsgi.application'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
 DATABASES = {
-    'default': {
+    'test2': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'uzuiwubt',
         'USER': 'uzuiwubt',
@@ -90,8 +90,15 @@ DATABASES = {
         'PASSWORD': 'hJS-uXf3_laP9X10Dj0jvH7YsgpuNiBM',
         'HOST': 'silly.db.elephantsql.com',
         'PORT': '5432',
-
-}
+    },
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'meu_banco_django',
+        'USER': 'postgres',
+        'PASSWORD': '123',
+        'HOST': 'localhost',
+        'PORT': '5432',
+    }
 }
 
 

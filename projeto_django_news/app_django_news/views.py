@@ -7,11 +7,8 @@ def inicio(request):
 def cadastro(request):
     if request.method =='POST':
         checkbox = request.POST.get('myCheckbox')
-        print(checkbox)
-        #Gambiarra
-        if checkbox is None:
-            pass
-        else:
+        if checkbox is not None:
+
             nome = request.POST.get('nome')
             email = request.POST.get('email')
             print(nome,email)
@@ -19,8 +16,7 @@ def cadastro(request):
             registro = Registro()
             registro.nome = nome
             registro.email = email
-            registro.save()
-            
+            registro.save()          
     return render(request,'cadastro.html')
 
 def contato(request):
